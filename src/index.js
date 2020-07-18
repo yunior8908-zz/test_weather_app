@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider as ReduxProvider } from 'react-redux';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { GeolocationContextProvider } from './GeolocationContext';
+import { store } from './redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GeolocationContextProvider>
+      <ReduxProvider store={store}>
+        <App />
+      </ReduxProvider>
+    </GeolocationContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
