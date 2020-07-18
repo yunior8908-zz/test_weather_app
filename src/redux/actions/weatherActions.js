@@ -26,12 +26,10 @@ const getWeatherDaysAction = position => async dispatch => {
       day,
       weather: response.data.list
         .filter(weather => moment(weather.dt_txt).format('YYYY-MM-DD') === day)
-        .sort((a, b) => a.dt - b.dt)
         .map(a => ({ ...a, main: { ...a.main, tempMin: a.main.temp_min, tempMax: a.main.temp_max } }))
+        .sort((a, b) => a.dt - b.dt)
     };
   });
-
-  result.pop();
 
   dispatch(setWeatherDays(result));
 };
