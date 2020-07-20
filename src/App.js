@@ -4,6 +4,7 @@ import { Container } from '@material-ui/core';
 import RoutersComponent from './RoutersComponent';
 import getWeatherDaysAction from './redux/actions/weatherActions';
 import { useGeolocationContext } from './GeolocationContext';
+import TopBarComponent from './components/TopBarComponent';
 
 function App({ funcGetWeatherDays }) {
   const position = useGeolocationContext();
@@ -15,9 +16,12 @@ function App({ funcGetWeatherDays }) {
   }, [position, funcGetWeatherDays]);
 
   return (
-    <Container maxWidth="md">
-      <RoutersComponent />
-    </Container>
+    <>
+      <TopBarComponent />
+      <Container maxWidth="md">
+        <RoutersComponent />
+      </Container>
+    </>
   );
 }
 

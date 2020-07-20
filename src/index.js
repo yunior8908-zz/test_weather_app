@@ -8,13 +8,11 @@ import { GeolocationContextProvider } from './GeolocationContext';
 import { store } from './redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <GeolocationContextProvider>
-      <ReduxProvider store={store}>
-        <App />
-      </ReduxProvider>
-    </GeolocationContextProvider>
-  </React.StrictMode>,
+  <GeolocationContextProvider>
+    <ReduxProvider store={store}>
+      <App />
+    </ReduxProvider>
+  </GeolocationContextProvider>,
   document.getElementById('root')
 );
 
