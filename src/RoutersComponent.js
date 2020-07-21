@@ -2,8 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import ParentSize from '@vx/responsive/lib/components/ParentSize';
 import WeatherHomeDaysComponent from './components/WeatherHomeDaysComponent';
 import weatherSelectedDayComponent from './components/WeatherSelectedDayComponent';
+import GraphicsComponent from './components/GraphicsComponent';
 
 function RoutersComponent({ weatherDays }) {
   return (
@@ -19,6 +21,7 @@ function RoutersComponent({ weatherDays }) {
           />
         );
       })}
+      <ParentSize>{({ width }) => <GraphicsComponent width={width} height={400} />}</ParentSize>
     </BrowserRouter>
   );
 }
