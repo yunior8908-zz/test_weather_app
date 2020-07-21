@@ -6,9 +6,14 @@ export const GeolocationContextProvider = ({ children }) => {
   const [position, setPosition] = useState({});
 
   useEffect(() => {
-    const watcher = window.navigator.geolocation.watchPosition(success => {
-      setPosition({ lat: success.coords.latitude, lon: success.coords.longitude });
-    });
+    const watcher = window.navigator.geolocation.watchPosition(
+      success => {
+        setPosition({ lat: success.coords.latitude, lon: success.coords.longitude });
+      },
+      err => {
+        console.log(err);
+      }
+    );
 
     return () => {
       window.navigator.geolocation.clearWatch(watcher);
